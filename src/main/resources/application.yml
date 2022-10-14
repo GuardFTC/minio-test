@@ -1,0 +1,8 @@
+#minio配置
+minio:
+  endpoint: http://120.48.107.224/
+  port: 9000
+  accessKey: ftc
+  secretKey: Feng24301314
+  secure: false
+  bucket: test
