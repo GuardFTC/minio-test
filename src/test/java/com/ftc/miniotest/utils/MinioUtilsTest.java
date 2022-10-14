@@ -123,12 +123,13 @@ class MinioUtilsTest {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(FileUtil.readBytes(filePath));
 
         MockMultipartFile mockMultipartFile = new MockMultipartFile("1.jpg", "1.jpg", contentType, inputStream);
-        objectName = "test_3.jpg";
+        objectName = "自定义中文.jpg";
         minioUtils.uploadObjectFromMultipartFile(minioConfig.getBucket(), objectName, mockMultipartFile);
 
         //9.获取文件Url
         objectUrl = minioUtils.getObjectUrl(minioConfig.getBucket(), objectName);
         Assert.isTrue(StrUtil.isNotBlank(objectUrl));
+        Assert.isTrue(objectUrl.contains("自定义中文.jpg"));
     }
 
     @Test
